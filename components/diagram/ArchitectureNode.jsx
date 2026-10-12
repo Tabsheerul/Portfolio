@@ -84,7 +84,7 @@ export default function ArchitectureNode({
       <circle
         ref={ringRef}
         r={nodeRadius}
-        fill="#111111"
+        fill="#140d27"
         stroke={accentColor}
         strokeWidth={1}
         strokeOpacity={0.4}

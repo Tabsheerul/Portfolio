@@ -109,7 +109,7 @@ export default function ProjectCard({ project, isReversed }) {
       />
 
       {/* Project number label that breaks the border */}
-      <span className="absolute -top-[11px] left-0 bg-[#050505] pr-4 text-[11px] uppercase tracking-[0.15em] text-[#666666] font-mono">
+      <span className="absolute -top-[11px] left-0 bg-[#140d27] pr-4 text-[11px] uppercase tracking-[0.15em] text-[#a78bfa] font-mono">
         PRJCT /{project.number}
       </span>
 
@@ -192,7 +192,7 @@ export default function ProjectCard({ project, isReversed }) {
               onClick={toggleHighlights}
               aria-expanded={expanded}
               aria-controls={highlightsId}
-              className="flex items-center gap-2 text-[13px] font-medium text-[#a0a0a0] hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#00d4ff] focus:ring-offset-2 focus:ring-offset-black rounded"
+              className="flex items-center gap-2 text-[13px] font-medium text-[#a0a0a0] hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-[#140d27] rounded"
             >
               <span
                 className="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-[14px] transition-transform duration-300"
@@ -236,7 +236,7 @@ export default function ProjectCard({ project, isReversed }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.05em] font-medium text-[#a0a0a0] border border-white/10 rounded-full px-5 py-3 hover:text-white hover:border-white/30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#00d4ff] focus:ring-offset-2 focus:ring-offset-black"
+                className="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.05em] font-medium text-[#a0a0a0] border border-white/10 rounded-full px-5 py-3 hover:text-white hover:border-purple-400/40 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-[#140d27]"
                 data-cursor="hover"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

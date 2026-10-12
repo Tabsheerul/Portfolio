@@ -38,9 +38,7 @@ export default function ContactHeading() {
 
   return (
     <div ref={containerRef} className="text-left md:text-center z-10 relative">
-      <p className="contact-caption text-[12px] uppercase tracking-[0.1em] text-[#00d4ff] font-medium mb-6">
-        05 / GET IN TOUCH
-      </p>
+      <span className="badge-pill mb-6 inline-block contact-caption">05 / GET IN TOUCH</span>
 
       {/* LET'S TALK — stroke fill-on-scroll, centred on md+ */}
       <div className="flex md:justify-center">
@@ -56,7 +54,7 @@ export default function ContactHeading() {
         />
       </div>
 
-      <p className="contact-subtitle text-[16px] md:text-[18px] text-[#a0a0a0] max-w-[560px] md:mx-auto mt-6 leading-relaxed">
+      <p className="contact-subtitle text-[16px] md:text-[18px] max-w-[560px] md:mx-auto mt-6 leading-relaxed" style={{ color: '#9b8fc4' }}>
         Have a project in mind or want to collaborate? I'm open to freelance opportunities and full-time roles.
       </p>
     </div>

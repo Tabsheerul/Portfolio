@@ -44,7 +44,7 @@ export default function Footer() {
   }, { scope: footerRef });
 
   return (
-    <footer id="footer" ref={footerRef} className="py-16 bg-[#050505] border-t border-white/[0.06] relative z-20">
+    <footer id="footer" ref={footerRef} className="py-16 border-t border-purple-500/10 relative z-20" style={{ background: '#0d0a1a' }}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         
         {/* Top Row: Brand & Links */}
@@ -63,11 +63,11 @@ export default function Footer() {
             <div className="footer-link-column">
               <h3 className="text-[11px] uppercase tracking-[0.1em] text-white font-semibold mb-4">Site</h3>
               <ul className="space-y-3">
-                <li><a href="#" onClick={(e) => handleNavClick(e, '#home')} className="text-[13px] text-[#666666] hover:text-white transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">Home</a></li>
-                <li><a href="#projects-header" onClick={(e) => handleNavClick(e, '#projects-header')} className="text-[13px] text-[#666666] hover:text-white transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">Work</a></li>
-                <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="text-[13px] text-[#666666] hover:text-white transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">About</a></li>
-                <li><a href="#skills-header" onClick={(e) => handleNavClick(e, '#skills-header')} className="text-[13px] text-[#666666] hover:text-white transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">Skills</a></li>
-                <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="text-[13px] text-[#666666] hover:text-white transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">Contact</a></li>
+                <li><a href="#" onClick={(e) => handleNavClick(e, '#home')} className="text-[13px] text-[#666666] hover:text-purple-300 transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">Home</a></li>
+                <li><a href="#projects-header" onClick={(e) => handleNavClick(e, '#projects-header')} className="text-[13px] text-[#666666] hover:text-purple-300 transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">Work</a></li>
+                <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="text-[13px] text-[#666666] hover:text-purple-300 transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">About</a></li>
+                <li><a href="#skills-header" onClick={(e) => handleNavClick(e, '#skills-header')} className="text-[13px] text-[#666666] hover:text-purple-300 transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">Skills</a></li>
+                <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="text-[13px] text-[#666666] hover:text-purple-300 transition-colors duration-200 focus:outline-none focus:text-white" data-cursor="hover">Contact</a></li>
               </ul>
             </div>
 
@@ -108,7 +108,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Tabsheerul Hafeez. All rights reserved.
           </p>
           
-          <div className="hidden md:block w-1 h-1 rounded-full bg-[#00d4ff] opacity-50" aria-hidden="true" />
+          <div className="hidden md:block w-1 h-1 rounded-full bg-[#c084fc] opacity-60" aria-hidden="true" />
           
           <BackToTop />
         </div>

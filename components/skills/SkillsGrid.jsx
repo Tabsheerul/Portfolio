@@ -40,7 +40,8 @@ export default function SkillsGrid() {
     <section
       id="skills-grid"
       ref={sectionRef}
-      className="py-24 bg-[#050505]"
+      className="py-24"
+      style={{ background: '#0d0a1a' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

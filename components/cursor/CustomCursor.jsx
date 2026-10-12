@@ -70,8 +70,8 @@ export default function CustomCursor() {
         outerProps = {
           width: 64,
           height: 64,
-          borderColor: '#00d4ff',
-          boxShadow: '0 0 20px rgba(0, 212, 255, 0.3)',
+          borderColor: '#a855f7',
+          boxShadow: '0 0 20px rgba(168, 85, 247, 0.35)',
           backgroundColor: 'transparent'
         };
         innerProps = { scale: 0.5, opacity: 1 };

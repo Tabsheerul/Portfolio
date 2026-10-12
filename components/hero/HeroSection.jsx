@@ -8,104 +8,82 @@ import { useAppStore } from '@/lib/store';
 import MagneticButton from '@/components/shared/MagneticButton';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-// Lazy-load heavy 3D canvas for performance
 const HeroBackground = dynamic(() => import('./HeroBackground'), { ssr: false });
 
 export default function HeroSection() {
   const sectionRef = useRef(null);
-  const subtitleRef = useRef(null);
   const cursorBlinkRef = useRef(null);
   const isLoading = useAppStore((s) => s.isLoading);
   const isScrolled = useAppStore((s) => s.isScrolled);
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  const nameChars = 'TABSHEERUL HAFEEZ'.split('');
   const subtitleText = 'I build scalable end-to-end applications';
 
   useEffect(() => {
     setPrefersReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
 
-  // Typewriter effect function
+  // Typewriter — reveals hidden letter spans one by one
   const startTypewriter = useCallback(() => {
-    if (!subtitleRef.current) return;
-    const el = subtitleRef.current;
-    el.textContent = '';
+    const chars = sectionRef.current?.querySelectorAll('.subtitle-char');
+    if (!chars || chars.length === 0) return;
     let i = 0;
-
     const type = () => {
-      if (i < subtitleText.length) {
-        el.textContent = subtitleText.slice(0, i + 1);
+      if (i < chars.length) {
+        chars[i].style.display = 'inline-block';
         i++;
-        setTimeout(type, 50);
+        setTimeout(type, 48);
       }
     };
     type();
-  }, [subtitleText]);
+  }, []);
 
-  // Hero entrance timeline — fires only after preloader finishes
+  // Hero entrance timeline
   useGSAP(() => {
     if (isLoading) return;
 
     if (prefersReducedMotion) {
-      // Simple fade in for reduced motion
       gsap.set('.hero-pretitle, .hero-char, .hero-location, .hero-cta, .scroll-indicator', { opacity: 1, y: 0 });
-      if (subtitleRef.current) subtitleRef.current.textContent = subtitleText;
+      gsap.set('.subtitle-char', { display: 'inline-block' });
       return;
     }
 
     const tl = gsap.timeline({ delay: 0.3 });
 
-    // Step 1: Pre-title fades up
     tl.fromTo('.hero-pretitle',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }
     );
 
-    // Step 1.5: Watermark fades in behind everything
-    tl.fromTo('.hero-watermark',
-      { opacity: 0, scale: 0.95 },
-      { opacity: 1, scale: 1, duration: 2, ease: 'power2.out' },
-      '-=0.2'
-    );
-
-    // Step 2: Name characters stagger in from below
     tl.fromTo('.hero-char',
-      { y: '100%', opacity: 0 },
-      { y: '0%', opacity: 1, duration: 0.8, stagger: 0.04, ease: 'power3.out' },
-      '-=0.3'
-    );
-
-    // Step 3: Subtitle typewriter effect starts
-    tl.add(() => {
-      startTypewriter();
-    }, '-=0.4');
-
-    // Step 4: Location fades in
-    tl.fromTo('.hero-location',
-      { opacity: 0, y: 10 },
-      { opacity: 1, y: 0, duration: 0.5 },
-      '-=1.2'
-    );
-
-    // Step 5: CTA button fades up
-    tl.fromTo('.hero-cta',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-      '-=0.8'
-    );
-
-    // Step 6: Scroll indicator appears
-    tl.fromTo('.scroll-indicator',
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5 },
+      { y: '110%', opacity: 0 },
+      { y: '0%', opacity: 1, duration: 0.9, stagger: 0.035, ease: 'power3.out' },
       '-=0.4'
     );
 
+    tl.add(() => { startTypewriter(); }, '-=0.3');
+
+    tl.fromTo('.hero-location',
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.5 },
+      '-=1.0'
+    );
+
+    tl.fromTo('.hero-cta',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+      '-=0.6'
+    );
+
+    tl.fromTo('.scroll-indicator',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5 },
+      '-=0.3'
+    );
   }, { dependencies: [isLoading, prefersReducedMotion], scope: sectionRef });
 
-  // Blinking cursor for typewriter
+  // Blinking cursor
   useGSAP(() => {
     if (!cursorBlinkRef.current || prefersReducedMotion) return;
     gsap.fromTo(cursorBlinkRef.current,
@@ -118,103 +96,241 @@ export default function HeroSection() {
   useGSAP(() => {
     if (prefersReducedMotion) return;
     gsap.to('.scroll-indicator-dot', {
-      y: 16,
-      duration: 1,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power1.inOut',
+      y: 16, duration: 1, repeat: -1, yoyo: true, ease: 'power1.inOut',
     });
   }, { scope: sectionRef });
 
-  const particleCount = isMobile ? 150 : 300;
+  // Mouse physics — letters + other text elements dodge the cursor
+  useGSAP(() => {
+    if (prefersReducedMotion || isMobile) return;
+
+    const chars = sectionRef.current.querySelectorAll('.hero-char-repel, .hero-repel-element');
+
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      chars.forEach((char) => {
+        const rect = char.getBoundingClientRect();
+        const charX = rect.left + rect.width / 2;
+        const charY = rect.top + rect.height / 2;
+        const dx = clientX - charX;
+        const dy = clientY - charY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const maxDist = 120;
+
+        if (dist < maxDist) {
+          const force = (maxDist - dist) / maxDist;
+          const angle = Math.atan2(dy, dx);
+          gsap.to(char, {
+            x: -Math.cos(angle) * force * 38,
+            y: -Math.sin(angle) * force * 38,
+            rotation: -Math.cos(angle) * force * 12,
+            scale: 1 + force * 0.12,
+            duration: 0.4,
+            ease: 'power3.out'
+          });
+        } else if (gsap.getProperty(char, 'x') !== 0) {
+          gsap.to(char, {
+            x: 0, y: 0, rotation: 0, scale: 1,
+            duration: 0.7, ease: 'elastic.out(1, 0.4)'
+          });
+        }
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, { scope: sectionRef, dependencies: [prefersReducedMotion, isMobile] });
+
+  // Main heading lines — mixed editorial style like Emotion Agency:
+  // italic serif + bold uppercase alternating
+  const line1 = 'Where'; // italic serif
+  const line2 = 'CODE MEETS';
+  const line3 = 'CRAFT';
 
   return (
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen w-full overflow-hidden flex items-center justify-center"
+      className="relative min-h-screen w-full overflow-hidden flex items-end justify-start"
     >
-      {/* 3D Background */}
-      {!prefersReducedMotion ? (
-        <HeroBackground particleCount={particleCount} />
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050505] to-[#0a0a0a]" />
-      )}
-      
-      {/* Background Quote Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
-        <h2 
-          className="font-display text-[clamp(40px,8vw,140px)] font-bold uppercase leading-[1.1] text-center whitespace-nowrap opacity-0 hero-watermark transition-colors duration-700"
-          style={{
-            color: 'rgba(255,255,255,0.015)',
-            WebkitTextStroke: '1px rgba(255,255,255,0.03)'
-          }}
-        >
-          CODE IS POETRY.<br />
-          SYSTEMS ARE ART.
-        </h2>
+      {/* Purple particle orb background */}
+      <div className="absolute inset-0 z-0">
+        {!prefersReducedMotion ? (
+          <HeroBackground />
+        ) : (
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, #1c1235 0%, #0d0a1a 60%)' }} />
+        )}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 min-h-screen">
+      {/* Ambient cosmic nebula glow */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[1]"
+        style={{
+          background: 'radial-gradient(ellipse 85% 65% at 50% 35%, rgba(168, 85, 247, 0.12) 0%, rgba(124, 58, 237, 0.04) 55%, transparent 75%)',
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Pre-title Caption */}
-        <p className="hero-pretitle opacity-0 text-[12px] uppercase tracking-[0.2em] font-medium text-[#666666] mb-6">
-          SYSTEMS ARCHITECT &amp; FULL STACK DEVELOPER
-        </p>
+      {/* Content — bottom-left editorial layout like Emotion Agency */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pb-16 md:pb-24">
 
-        {/* Main Name */}
-        <h1 className="font-display text-[clamp(48px,8vw,96px)] font-bold leading-[1.0] text-white mb-6">
-          {nameChars.map((char, i) => (
-            <span key={i} className="inline-block overflow-hidden">
-              <span className="inline-block hero-char opacity-0">
+        {/* Caption — monospace uppercase small */}
+        <div className="hero-pretitle opacity-0 mb-6">
+          <span className="caption-mono text-[#6b5f8a]">
+            {'FULL STACK DEVELOPER & SYSTEMS ARCHITECT'.split('').map((char, i) => (
+              <span key={i} className="hero-repel-element inline-block origin-center" style={{ willChange: 'transform' }}>
                 {char === ' ' ? '\u00A0' : char}
               </span>
-            </span>
-          ))}
-        </h1>
-
-        {/* Subtitle with Typewriter */}
-        <div className="flex items-center justify-center mb-4 h-[28px]">
-          <span
-            ref={subtitleRef}
-            className="text-[16px] md:text-[18px] text-[#a0a0a0]"
-          />
-          <span
-            ref={cursorBlinkRef}
-            className="text-[18px] text-[#00d4ff] ml-[2px] font-light"
-          >
-            |
+            ))}
           </span>
         </div>
 
-        {/* Location */}
-        <p className="hero-location opacity-0 text-[12px] uppercase tracking-[0.1em] text-[#666666] mt-2">
-          Based in Jamshedpur, India
-        </p>
+        {/* Hero Headline — editorial mix: italic serif + bold uppercase */}
+        <h1 className="font-display leading-[0.95] mb-8" style={{ perspective: '800px' }}>
+          {/* Line 1: italic serif "Where" */}
+          <div className="block overflow-visible mb-1">
+            <span
+              className="inline-block"
+              style={{
+                fontFamily: 'var(--font-playfair), Georgia, serif',
+                fontStyle: 'italic',
+                fontWeight: 400,
+                fontSize: 'clamp(64px, 10vw, 140px)',
+                color: '#f0eeff',
+                lineHeight: 1,
+              }}
+            >
+              {line1.split('').map((char, i) => (
+                <span key={i} className="inline-block overflow-hidden">
+                  <span className="inline-block hero-char-repel origin-center" style={{ willChange: 'transform' }}>
+                    <span className="inline-block hero-char opacity-0">{char}</span>
+                  </span>
+                </span>
+              ))}
+            </span>
+          </div>
 
-        {/* CTA Button */}
-        <div className="hero-cta opacity-0 mt-12">
+          {/* Line 2: bold uppercase "CODE MEETS" */}
+          <div className="block overflow-visible mb-1">
+            <span
+              className="inline-block"
+              style={{
+                fontFamily: 'var(--font-space-grotesk), sans-serif',
+                fontWeight: 700,
+                fontSize: 'clamp(54px, 9vw, 130px)',
+                color: '#f0eeff',
+                letterSpacing: '-0.02em',
+                lineHeight: 1,
+              }}
+            >
+              {line2.split('').map((char, i) => (
+                <span key={i} className="inline-block overflow-hidden">
+                  <span className="inline-block hero-char-repel origin-center" style={{ willChange: 'transform' }}>
+                    <span className="inline-block hero-char opacity-0">
+                      {char === ' ' ? '\u00A0' : char}
+                    </span>
+                  </span>
+                </span>
+              ))}
+            </span>
+          </div>
+
+          {/* Line 3: "CRAFT" — large bold + purple accent arrow */}
+          <div className="block overflow-visible flex items-center gap-4">
+            <span
+              className="inline-block"
+              style={{
+                fontFamily: 'var(--font-space-grotesk), sans-serif',
+                fontWeight: 700,
+                fontSize: 'clamp(54px, 9vw, 130px)',
+                color: '#a855f7',
+                letterSpacing: '-0.02em',
+                lineHeight: 1,
+              }}
+            >
+              {line3.split('').map((char, i) => (
+                <span key={i} className="inline-block overflow-hidden">
+                  <span className="inline-block hero-char-repel origin-center" style={{ willChange: 'transform' }}>
+                    <span className="inline-block hero-char opacity-0">{char}</span>
+                  </span>
+                </span>
+              ))}
+            </span>
+          </div>
+        </h1>
+
+        {/* Typewriter subtitle */}
+        <div className="flex items-center mb-8 h-[28px]">
+          <div className="flex items-center">
+            {subtitleText.split('').map((char, i) => (
+              <span
+                key={i}
+                className="hero-repel-element subtitle-char origin-center text-[16px] md:text-[18px]"
+                style={{
+                  willChange: 'transform',
+                  display: 'none',
+                  color: '#9b8fc4',
+                  fontFamily: 'var(--font-inter), sans-serif',
+                }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+            <span
+              ref={cursorBlinkRef}
+              className="text-[18px] ml-[2px] font-light"
+              style={{ color: '#a855f7' }}
+            >
+              |
+            </span>
+          </div>
+        </div>
+
+        {/* Location */}
+        <div className="hero-location opacity-0 mb-8">
+          <span className="caption-mono" style={{ color: '#6b5f8a' }}>
+            {'Based in Jamshedpur, India'.split('').map((char, i) => (
+              <span key={i} className="hero-repel-element inline-block origin-center" style={{ willChange: 'transform' }}>
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </span>
+        </div>
+
+        {/* CTA */}
+        <div className="hero-cta opacity-0">
           <MagneticButton
-            className="!bg-transparent !text-white border border-white/20 text-[14px] uppercase tracking-[0.05em] font-medium hover:!bg-[#00d4ff] hover:!text-black hover:!border-[#00d4ff]"
+            className="!bg-transparent border text-[13px] uppercase tracking-[0.08em] font-medium"
+            style={{
+              color: '#f0eeff',
+              borderColor: 'rgba(168,85,247,0.4)',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'rgba(168,85,247,0.2)';
+              e.currentTarget.style.borderColor = '#a855f7';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.borderColor = 'rgba(168,85,247,0.4)';
+            }}
             onClick={() => {
-              const el = document.querySelector('#system-architecture');
+              const el = document.querySelector('#projects-header');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Explore My Work
           </MagneticButton>
         </div>
+      </div>
 
-        {/* Scroll Indicator */}
-        <div
-          className="scroll-indicator opacity-0 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center transition-opacity duration-500"
-          style={{ opacity: isScrolled ? 0 : undefined }}
-        >
-          <span className="text-[10px] uppercase tracking-[0.15em] text-white/30 mb-3">SCROLL</span>
-          <div className="w-[1px] h-[40px] bg-white/20 relative overflow-hidden rounded-full">
-            <div className="scroll-indicator-dot absolute top-0 left-1/2 -translate-x-1/2 w-[4px] h-[4px] rounded-full bg-white/80" />
-          </div>
+      {/* Scroll Indicator */}
+      <div
+        className="scroll-indicator opacity-0 absolute bottom-10 right-12 flex flex-col items-center transition-opacity duration-500"
+        style={{ opacity: isScrolled ? 0 : undefined }}
+      >
+        <span className="caption-mono mb-3" style={{ color: '#6b5f8a' }}>SCROLL</span>
+        <div className="w-[1px] h-[40px] relative overflow-hidden rounded-full" style={{ background: 'rgba(168,85,247,0.2)' }}>
+          <div className="scroll-indicator-dot absolute top-0 left-1/2 -translate-x-1/2 w-[4px] h-[4px] rounded-full" style={{ background: '#a855f7' }} />
         </div>
       </div>
     </section>

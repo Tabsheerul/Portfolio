@@ -25,14 +25,14 @@ export default function NotFound() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#050505] flex flex-col items-center justify-center text-center px-6 relative z-10 overflow-hidden">
+    <div ref={containerRef} className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative z-10 overflow-hidden" style={{ background: '#0d0a1a' }}>
       
       {/* 404 Text */}
       <h1 
         className="not-found-404 font-display text-[clamp(100px,20vw,280px)] font-bold leading-none mb-6 select-none"
         style={{
           color: 'transparent',
-          WebkitTextStroke: '2px rgba(255,255,255,0.1)'
+          WebkitTextStroke: '2px rgba(168,85,247,0.2)'
         }}
       >
         404
@@ -49,7 +49,7 @@ export default function NotFound() {
 
         <Link href="/" tabIndex={-1}>
           <MagneticButton
-            className="!bg-transparent !border !border-white/20 hover:!bg-[#00d4ff] hover:!border-[#00d4ff] hover:!text-black !text-[13px] !uppercase !tracking-[0.05em] !font-medium !px-8 !py-4 transition-all duration-300"
+            className="!bg-transparent !border !border-white/20 hover:!bg-[#a855f7] hover:!border-[#a855f7] hover:!text-white !text-[13px] !uppercase !tracking-[0.05em] !font-medium !px-8 !py-4 transition-all duration-300"
             data-cursor="hover"
           >
             BACK TO HOME

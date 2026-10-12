@@ -47,24 +47,18 @@ export default function RecognitionSection() {
   }, { scope: sectionRef });
 
   return (
-    <section id="recognition" ref={sectionRef} className="py-24 bg-[#080808] border-t border-white/[0.04]">
+    <section id="recognition" ref={sectionRef} className="py-24 border-t border-purple-500/10" style={{ background: '#140d27' }}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         
         {/* Header */}
         <div className="mb-12">
-          <p className="recog-caption text-[12px] uppercase tracking-[0.1em] text-[#00d4ff] font-medium mb-6">
+          <span className="badge-pill mb-6 inline-block recog-caption">
             06 / RECOGNITION
-          </p>
+          </span>
 
-          <ScrollRevealText
-            text="EDUCATION & CERTIFICATIONS"
-            type="words"
-            as="h2"
-            className="font-display text-[clamp(32px,4vw,56px)] font-bold text-white uppercase leading-[1.0] mb-4"
-            stagger={0.03}
-            y={40}
-            triggerStart="top 80%"
-          />
+          <h2 className="font-display text-[clamp(32px,4vw,56px)] font-bold text-white uppercase leading-[1.0] mb-4">
+            EDUCATION & <span className="font-serif italic font-normal text-purple-300">CERTIFICATIONS</span>
+          </h2>
 
           <p className="recog-subtitle text-[16px] text-[#a0a0a0] max-w-[600px]">
             Continuous learning and formal credentials that back the craft.
@@ -78,7 +72,7 @@ export default function RecognitionSection() {
           <div className="recog-edu-card h-full">
             <GlassCard className="p-8 h-full">
               <div className="flex items-center gap-4 mb-6">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c084fc" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d={ICONS.GraduationCap} />
                 </svg>
                 <h3 className="text-[24px] font-semibold text-white">B.Tech in Computer Science</h3>
@@ -87,7 +81,7 @@ export default function RecognitionSection() {
               <div className="mb-6">
                 <p className="text-[16px] text-[#a0a0a0]">Jharkhand University of Technology</p>
                 <div className="flex items-center justify-between mt-2">
-                  <p className="text-[14px] text-[#666666] font-mono">2022 – 2026</p>
+                  <p className="text-[14px] text-[#a78bfa] font-mono">2022 – 2026</p>
                   <p className="text-[14px] text-[#a0a0a0]">CGPA: <span className="font-semibold text-white">7.33</span></p>
                 </div>
               </div>
@@ -96,7 +90,7 @@ export default function RecognitionSection() {
                 <p className="text-[12px] uppercase tracking-[0.05em] text-[#666666] mb-3 font-medium">Relevant Coursework</p>
                 <div className="flex flex-wrap gap-2">
                   {['Data Structures & Algorithms', 'Java Full Stack Development', 'Software Engineering'].map(course => (
-                    <span key={course} className="text-[11px] uppercase tracking-[0.05em] text-[#a0a0a0] border border-white/10 rounded px-3 py-1 bg-white/[0.02]">
+                    <span key={course} className="text-[11px] uppercase tracking-[0.05em] text-[#c084fc] border border-purple-500/20 rounded px-3 py-1 bg-purple-500/5">
                       {course}
                     </span>
                   ))}
@@ -112,11 +106,11 @@ export default function RecognitionSection() {
             <div 
               className="recog-cert-item flex items-center p-5 md:p-6 bg-white/[0.02] border border-white/[0.06] rounded-lg transition-all duration-300 group hover:-translate-y-1"
               style={{ borderLeft: '2px solid transparent' }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderLeftColor = '#00ff88'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderLeftColor = '#c084fc'; e.currentTarget.style.backgroundColor = 'rgba(168,85,247,0.08)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderLeftColor = 'transparent'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.02)'; }}
             >
-              <div className="w-12 h-12 rounded-lg bg-[#00ff88]/10 flex items-center justify-center shrink-0 mr-4 md:mr-6">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00ff88" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0 mr-4 md:mr-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c084fc" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d={ICONS.Award} />
                 </svg>
               </div>
@@ -130,11 +124,11 @@ export default function RecognitionSection() {
             <div 
               className="recog-cert-item flex items-center p-5 md:p-6 bg-white/[0.02] border border-white/[0.06] rounded-lg transition-all duration-300 group hover:-translate-y-1"
               style={{ borderLeft: '2px solid transparent' }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderLeftColor = '#0088ff'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderLeftColor = '#a855f7'; e.currentTarget.style.backgroundColor = 'rgba(168,85,247,0.08)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderLeftColor = 'transparent'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.02)'; }}
             >
-              <div className="w-12 h-12 rounded-lg bg-[#0088ff]/10 flex items-center justify-center shrink-0 mr-4 md:mr-6">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0088ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0 mr-4 md:mr-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d={ICONS.Code2} />
                 </svg>
               </div>

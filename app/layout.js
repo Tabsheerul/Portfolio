@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import CursorProvider from '@/components/cursor/CursorProvider';
 import SmoothScroll from '@/components/smooth-scroll/SmoothScroll';
@@ -24,6 +24,14 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
   display: 'swap',
+});
+
+const playfairDisplay = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+  style: ['normal', 'italic'],
+  weight: ['400', '700'],
 });
 
 export const metadata = {
@@ -101,7 +109,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased selection:bg-accent-primary/30 selection:text-white`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable} antialiased selection:bg-accent-primary/30 selection:text-white`}>
         <CursorProvider>
           <SmoothScroll>
             <PreloaderProvider>

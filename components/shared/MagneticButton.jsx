@@ -44,7 +44,7 @@ export default function MagneticButton({ children, className, ...props }) {
   return (
     <button
       ref={buttonRef}
-      className={`relative inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-black font-medium hover:bg-[#00d4ff] hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4ff] focus:ring-offset-2 focus:ring-offset-black ${className}`}
+      className={`relative inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-black font-medium hover:bg-[#a855f7] hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#a855f7] focus:ring-offset-2 focus:ring-offset-[#0d0a1a] ${className}`}
       data-cursor="hover"
       {...props}
     >

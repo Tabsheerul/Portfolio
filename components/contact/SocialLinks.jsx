@@ -56,12 +56,12 @@ export default function SocialLinks() {
             href={link.url}
             target={isExternal ? '_blank' : undefined}
             rel={isExternal ? 'noopener noreferrer' : undefined}
-            className="social-link-item flex items-center gap-2 px-6 py-3 border border-white/10 rounded-full bg-transparent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4ff] group"
+            className="social-link-item flex items-center gap-2 px-6 py-3 border border-white/10 rounded-full bg-transparent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 group"
             data-cursor="hover"
             aria-label={`Visit ${link.name}`}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.4)';
-              e.currentTarget.style.backgroundColor = 'rgba(0, 212, 255, 0.08)';
+              e.currentTarget.style.borderColor = 'rgba(168, 85, 247, 0.4)';
+              e.currentTarget.style.backgroundColor = 'rgba(168, 85, 247, 0.12)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = '';
@@ -77,7 +77,7 @@ export default function SocialLinks() {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-[#a0a0a0] group-hover:text-[#00d4ff] transition-colors duration-300"
+              className="text-[#a0a0a0] group-hover:text-purple-400 transition-colors duration-300"
               aria-hidden="true"
             >
               <path d={ICONS[link.icon]} />

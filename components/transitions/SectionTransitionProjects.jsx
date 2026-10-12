@@ -48,7 +48,8 @@ export default function SectionTransitionProjects() {
   return (
     <section
       ref={sectionRef}
-      className="section-transition-projects h-screen bg-[#050505] flex items-center justify-center overflow-hidden relative z-10"
+      className="section-transition-projects h-screen flex items-center justify-center overflow-hidden relative z-10"
+      style={{ background: '#140d27' }}
     >
       {/* Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
@@ -63,13 +64,13 @@ export default function SectionTransitionProjects() {
 
       <div className="relative z-10 text-center" aria-hidden="true">
         <div className="overflow-hidden">
-          <span className="transition-projects-line block font-display text-[clamp(60px,12vw,160px)] font-bold uppercase text-white leading-[1.0]">
+          <span className="transition-projects-line block font-display text-[clamp(54px,11vw,150px)] font-bold uppercase text-white leading-[1.0]">
             TOOLS I
           </span>
         </div>
-        <div className="overflow-hidden">
-          <span className="transition-projects-line block font-display text-[clamp(60px,12vw,160px)] font-bold uppercase text-white leading-[1.0]">
-            BUILD WITH
+        <div className="overflow-hidden mt-2">
+          <span className="transition-projects-line block font-display text-[clamp(54px,11vw,150px)] font-bold uppercase text-purple-400 leading-[1.0]">
+            BUILD <span className="font-serif italic font-normal text-purple-200">WITH</span>
           </span>
         </div>
       </div>

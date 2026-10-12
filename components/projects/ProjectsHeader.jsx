@@ -49,12 +49,11 @@ export default function ProjectsHeader() {
     <section
       id="projects-header"
       ref={sectionRef}
-      className="py-24 bg-[#050505]"
+      className="py-24"
+      style={{ background: '#140d27' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <p className="projects-caption text-[12px] uppercase tracking-[0.1em] text-[#00d4ff] font-medium mb-6">
-          03 / SELECTED WORKS
-        </p>
+        <span className="badge-pill mb-6 inline-block projects-caption">03 / SELECTED WORKS</span>
 
         {/* Title row — stroke-to-fill scroll reveal */}
         <div className="flex flex-wrap items-center gap-x-4 mb-6">
@@ -70,7 +69,8 @@ export default function ProjectsHeader() {
           />
           <span
             ref={arrowsRef}
-            className="inline-block font-display text-[clamp(40px,6vw,80px)] font-bold text-[#00d4ff] leading-[1.0] select-none"
+            className="inline-block font-display text-[clamp(40px,6vw,80px)] font-bold leading-[1.0] select-none"
+            style={{ color: '#a855f7' }}
           >
             ⟶⟶
           </span>

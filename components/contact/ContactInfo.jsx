@@ -77,7 +77,7 @@ export default function ContactInfo() {
           {/* Tooltip */}
           {item.isCopyable && (
             <div
-              className="absolute -top-10 bg-[#00d4ff] text-black text-[11px] font-semibold px-[10px] py-[4px] rounded transition-all duration-300 pointer-events-none"
+              className="absolute -top-10 bg-[#a855f7] text-white text-[11px] font-semibold px-[10px] py-[4px] rounded transition-all duration-300 pointer-events-none"
               style={{
                 opacity: copied === item.id ? 1 : 0,
                 transform: `translateY(${copied === item.id ? 0 : 10}px)`,
@@ -88,7 +88,7 @@ export default function ContactInfo() {
             </div>
           )}
 
-          <div className="text-[#00d4ff] mb-4">
+          <div className="text-purple-400 mb-4">
             {item.icon}
           </div>
           
@@ -99,7 +99,7 @@ export default function ContactInfo() {
           {item.isCopyable ? (
             <button
               onClick={() => handleCopy(item.value, item.id)}
-              className="text-[16px] font-medium text-white hover:text-[#00d4ff] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4ff] focus:ring-offset-2 focus:ring-offset-black rounded px-2 py-1 -mx-2"
+              className="text-[16px] font-medium text-white hover:text-purple-300 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-[#140d27] rounded px-2 py-1 -mx-2"
               data-cursor="hover"
               aria-label={`Copy ${item.label.toLowerCase()} to clipboard`}
             >

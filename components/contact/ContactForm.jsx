@@ -79,12 +79,12 @@ export default function ContactForm() {
             autoComplete="off"
             value={formData.name}
             onChange={handleChange}
-            className="peer w-full bg-transparent border-b border-white/10 px-0 py-3 text-[16px] text-white focus:outline-none focus:border-[#00d4ff] transition-colors duration-300 shadow-[0_1px_0_0_transparent] focus:shadow-[0_1px_12px_rgba(0,212,255,0.15)] placeholder-transparent focus:placeholder-white/30"
+            className="peer w-full bg-transparent border-b border-white/10 px-0 py-3 text-[16px] text-white focus:outline-none focus:border-purple-400 transition-colors duration-300 shadow-[0_1px_0_0_transparent] focus:shadow-[0_1px_12px_rgba(168,85,247,0.2)] placeholder-transparent focus:placeholder-white/30"
             placeholder="John Doe"
           />
           <label 
             htmlFor="name" 
-            className="absolute left-0 top-3 text-[12px] uppercase tracking-[0.05em] font-medium text-[#666666] transition-all duration-300 pointer-events-none origin-left peer-focus:-top-5 peer-focus:text-[#00d4ff] peer-focus:scale-90 peer-[&:not(:placeholder-shown)]:-top-5 peer-[&:not(:placeholder-shown)]:text-[#00d4ff] peer-[&:not(:placeholder-shown)]:scale-90"
+            className="absolute left-0 top-3 text-[12px] uppercase tracking-[0.05em] font-medium text-[#666666] transition-all duration-300 pointer-events-none origin-left peer-focus:-top-5 peer-focus:text-purple-400 peer-focus:scale-90 peer-[&:not(:placeholder-shown)]:-top-5 peer-[&:not(:placeholder-shown)]:text-purple-400 peer-[&:not(:placeholder-shown)]:scale-90"
           >
             Your Name
           </label>
@@ -100,12 +100,12 @@ export default function ContactForm() {
             autoComplete="off"
             value={formData.email}
             onChange={handleChange}
-            className="peer w-full bg-transparent border-b border-white/10 px-0 py-3 text-[16px] text-white focus:outline-none focus:border-[#00d4ff] transition-colors duration-300 shadow-[0_1px_0_0_transparent] focus:shadow-[0_1px_12px_rgba(0,212,255,0.15)] placeholder-transparent focus:placeholder-white/30"
+            className="peer w-full bg-transparent border-b border-white/10 px-0 py-3 text-[16px] text-white focus:outline-none focus:border-purple-400 transition-colors duration-300 shadow-[0_1px_0_0_transparent] focus:shadow-[0_1px_12px_rgba(168,85,247,0.2)] placeholder-transparent focus:placeholder-white/30"
             placeholder="john@example.com"
           />
           <label 
             htmlFor="email" 
-            className="absolute left-0 top-3 text-[12px] uppercase tracking-[0.05em] font-medium text-[#666666] transition-all duration-300 pointer-events-none origin-left peer-focus:-top-5 peer-focus:text-[#00d4ff] peer-focus:scale-90 peer-[&:not(:placeholder-shown)]:-top-5 peer-[&:not(:placeholder-shown)]:text-[#00d4ff] peer-[&:not(:placeholder-shown)]:scale-90"
+            className="absolute left-0 top-3 text-[12px] uppercase tracking-[0.05em] font-medium text-[#666666] transition-all duration-300 pointer-events-none origin-left peer-focus:-top-5 peer-focus:text-purple-400 peer-focus:scale-90 peer-[&:not(:placeholder-shown)]:-top-5 peer-[&:not(:placeholder-shown)]:text-purple-400 peer-[&:not(:placeholder-shown)]:scale-90"
           >
             Your Email
           </label>
@@ -121,12 +121,12 @@ export default function ContactForm() {
             rows={4}
             value={formData.message}
             onChange={handleChange}
-            className="peer w-full bg-transparent border-b border-white/10 px-0 py-3 text-[16px] text-white focus:outline-none focus:border-[#00d4ff] transition-colors duration-300 resize-y shadow-[0_1px_0_0_transparent] focus:shadow-[0_1px_12px_rgba(0,212,255,0.15)] leading-[1.5] placeholder-transparent focus:placeholder-white/30"
+            className="peer w-full bg-transparent border-b border-white/10 px-0 py-3 text-[16px] text-white focus:outline-none focus:border-purple-400 transition-colors duration-300 resize-y shadow-[0_1px_0_0_transparent] focus:shadow-[0_1px_12px_rgba(168,85,247,0.2)] leading-[1.5] placeholder-transparent focus:placeholder-white/30"
             placeholder="Tell me about your project..."
           />
           <label 
             htmlFor="message" 
-            className="absolute left-0 top-3 text-[12px] uppercase tracking-[0.05em] font-medium text-[#666666] transition-all duration-300 pointer-events-none origin-left peer-focus:-top-5 peer-focus:text-[#00d4ff] peer-focus:scale-90 peer-[&:not(:placeholder-shown)]:-top-5 peer-[&:not(:placeholder-shown)]:text-[#00d4ff] peer-[&:not(:placeholder-shown)]:scale-90"
+            className="absolute left-0 top-3 text-[12px] uppercase tracking-[0.05em] font-medium text-[#666666] transition-all duration-300 pointer-events-none origin-left peer-focus:-top-5 peer-focus:text-purple-400 peer-focus:scale-90 peer-[&:not(:placeholder-shown)]:-top-5 peer-[&:not(:placeholder-shown)]:text-purple-400 peer-[&:not(:placeholder-shown)]:scale-90"
           >
             Your Message
           </label>
@@ -137,9 +137,9 @@ export default function ContactForm() {
             type="submit"
             disabled={isButtonDisabled}
             className={`w-full md:w-auto min-w-[200px] !px-10 !py-4 !text-[14px] !font-semibold !tracking-[0.05em] !uppercase transition-all duration-300 ${
-              status === 'success' ? '!bg-[#00ff88] !border-[#00ff88] !text-black' : 
+              status === 'success' ? '!bg-[#a855f7] !border-[#a855f7] !text-white' : 
               status === 'error' ? '!bg-[#ff4444] !border-[#ff4444] !text-white' : 
-              '!bg-transparent !border-white/20 !text-white hover:!bg-[#00d4ff] hover:!border-[#00d4ff] hover:!text-black'
+              '!bg-transparent !border-white/20 !text-white hover:!bg-[#a855f7] hover:!border-[#a855f7] hover:!text-white'
             } ${status === 'submitting' ? 'opacity-80 cursor-not-allowed' : ''}`}
             data-cursor={isButtonDisabled ? "" : "hover"}
           >

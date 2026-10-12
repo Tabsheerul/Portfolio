@@ -30,7 +30,7 @@ export default function NavLink({ href, isActive, children }) {
       {children}
       <span 
         className={cn(
-          "absolute -bottom-[6px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#00d4ff] transition-transform duration-300",
+          "absolute -bottom-[6px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#c084fc] transition-transform duration-300",
           isActive ? "scale-100" : "scale-0 group-hover:scale-100"
         )}
       />

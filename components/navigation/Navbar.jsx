@@ -93,7 +93,7 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 w-full z-[9996] transition-all duration-300",
         "h-[64px] lg:h-[80px]",
         isScrolled 
-          ? "bg-[rgba(5,5,5,0.8)] backdrop-blur-[12px] border-b border-white/5" 
+          ? "bg-[rgba(13,10,26,0.85)] backdrop-blur-[12px] border-b border-[rgba(168,85,247,0.12)]" 
           : "bg-transparent border-transparent"
       )}
     >

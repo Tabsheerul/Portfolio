@@ -7,7 +7,8 @@ export default function ProjectList() {
   return (
     <section
       id="projects-list"
-      className="bg-[#050505] pb-[160px]"
+      className="pb-[160px]"
+      style={{ background: '#140d27' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {projects.map((project, index) => (

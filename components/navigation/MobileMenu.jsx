@@ -67,11 +67,12 @@ export default function MobileMenu() {
     <div
       ref={menuRef}
       className={cn(
-        "fixed inset-0 z-[9997] bg-[#050505] flex flex-col items-center justify-center transition-all duration-500",
+        "fixed inset-0 z-[9997] flex flex-col items-center justify-center transition-all duration-500",
         isMenuOpen ? "opacity-100 pointer-events-auto visible" : "opacity-0 pointer-events-none invisible"
       )}
+      style={{ background: '#0d0a1a' }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,212,255,0.05)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(168,85,247,0.07) 0%, transparent 60%)' }} />
 
       <nav className="flex flex-col items-center space-y-8">
         {links.map((link, i) => (
@@ -80,7 +81,7 @@ export default function MobileMenu() {
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
               ref={el => linksRef.current[i] = el}
-              className="inline-block font-display text-[48px] text-white hover:text-[#00d4ff] transition-colors"
+              className="inline-block font-display text-[48px] text-white hover:text-purple-400 transition-colors"
               data-cursor="hover"
             >
               {link.name}

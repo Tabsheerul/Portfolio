@@ -57,13 +57,13 @@ export default function PageTransition({ children }) {
         ref={transitionRef} 
         className="fixed inset-0 z-[9995] pointer-events-none flex"
       >
-        <div className="transition-panel w-1/4 h-full bg-[#0a0a0a] translate-y-full" />
-        <div className="transition-panel w-1/4 h-full bg-[#0a0a0a] translate-y-full" />
-        <div className="transition-panel w-1/4 h-full bg-[#0a0a0a] translate-y-full" />
-        <div className="transition-panel w-1/4 h-full bg-[#0a0a0a] translate-y-full" />
+        <div className="transition-panel w-1/4 h-full bg-[#0d0a1a] translate-y-full border-r border-purple-500/10" />
+        <div className="transition-panel w-1/4 h-full bg-[#0d0a1a] translate-y-full border-r border-purple-500/10" />
+        <div className="transition-panel w-1/4 h-full bg-[#0d0a1a] translate-y-full border-r border-purple-500/10" />
+        <div className="transition-panel w-1/4 h-full bg-[#0d0a1a] translate-y-full" />
         
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="transition-text font-display text-[24px] text-white opacity-0">
+          <span className="transition-text font-display text-[24px] tracking-[0.2em] text-purple-200 opacity-0">
             T.HAFEEZ
           </span>
         </div>

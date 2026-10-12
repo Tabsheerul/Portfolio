@@ -21,7 +21,7 @@ function FreelanceStat({ stat }) {
   return (
     <div ref={statRef} className="text-center">
       <div
-        className="font-display text-[28px] md:text-[32px] font-bold text-white mb-1"
+        className="font-display text-[28px] md:text-[32px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-purple-300 to-fuchsia-400 mb-1"
         aria-label={`${stat.display} ${stat.label}`}
       >
         {stat.display}
@@ -76,19 +76,20 @@ export default function FreelanceImpact() {
     <section
       id="freelance-impact"
       ref={sectionRef}
-      className="py-32 bg-[#080808] relative"
+      className="py-32 relative"
+      style={{ background: '#0d0a1a' }}
     >
       {/* Top accent line */}
       <div
-        className="freelance-divider absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#00d4ff]/20 to-transparent origin-left"
+        className="freelance-divider absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent origin-left"
       />
 
       <div className="max-w-[1000px] mx-auto px-6 lg:px-12 text-center">
 
         {/* Caption */}
-        <p className="text-[11px] uppercase tracking-[0.15em] text-[#666666] mb-8">
-          Commercial Freelance Work
-        </p>
+        <span className="badge-pill mb-8 inline-block">
+          COMMERCIAL FREELANCE WORK
+        </span>
 
         {/* Large quote — word-by-word reveal */}
         <ScrollRevealText

@@ -37,12 +37,11 @@ export default function SkillsHeader() {
     <section
       id="skills-header"
       ref={sectionRef}
-      className="py-24 bg-[#050505]"
+      className="py-24"
+      style={{ background: '#0d0a1a' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <p className="skills-caption text-[12px] uppercase tracking-[0.1em] text-[#00d4ff] font-medium mb-6">
-          04 / TECH STACK
-        </p>
+        <span className="badge-pill mb-6 inline-block skills-caption">04 / TECH STACK</span>
 
         <div className="mb-6">
           <StrokeRevealText

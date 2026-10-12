@@ -100,7 +100,7 @@ export default function Preloader() {
   }, [setIsLoading, setLoadingProgress]);
 
   return (
-    <div ref={containerRef} className="fixed inset-0 z-[9999] pointer-events-none preloader-bg bg-[#050505] flex items-center justify-center">
+    <div ref={containerRef} className="fixed inset-0 z-[9999] pointer-events-none preloader-bg flex items-center justify-center" style={{ background: '#0d0a1a' }}>
       <div className="preloader-content flex flex-col items-center">
         {/* Name Reveal */}
         <div className="flex space-x-[2px] overflow-hidden mb-8">
@@ -119,8 +119,8 @@ export default function Preloader() {
             000%
           </div>
           
-          <div className="w-[200px] h-[1px] bg-white/10 overflow-hidden mb-4">
-            <div className="preloader-bar-fill w-full h-full bg-[#00d4ff] origin-left scale-x-0" />
+          <div className="w-[200px] h-[1px] overflow-hidden mb-4" style={{ background: 'rgba(168,85,247,0.15)' }}>
+            <div className="preloader-bar-fill w-full h-full origin-left scale-x-0" style={{ background: 'linear-gradient(90deg, #7c3aed, #a855f7, #e879f9)' }} />
           </div>
 
           <div className="preloader-subtitle text-[12px] uppercase tracking-[0.1em] text-[#a0a0a0] opacity-0">

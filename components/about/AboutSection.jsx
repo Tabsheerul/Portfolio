@@ -67,7 +67,8 @@ export default function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative bg-[#050505] py-24 md:py-32"
+      className="relative py-24 md:py-32"
+      style={{ background: '#0d0a1a' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
@@ -75,9 +76,7 @@ export default function AboutSection() {
 
           {/* ─── Left Column: About Text ─── */}
           <div>
-            <p className="about-caption text-[12px] uppercase tracking-[0.1em] text-[#00d4ff] font-medium mb-4">
-              02 / ABOUT ME
-            </p>
+            <span className="badge-pill mb-6 inline-block">02 / ABOUT ME</span>
 
             <AboutText />
 
@@ -88,8 +87,8 @@ export default function AboutSection() {
               <div className="about-info-card">
                 <GlassCard className="flex items-start gap-4 p-5">
                   {/* Graduation Cap icon inline SVG */}
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'rgba(168,85,247,0.12)' }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                       <path d="M6 12v5c3 3 9 3 12 0v-5" />
                     </svg>
@@ -104,8 +103,8 @@ export default function AboutSection() {
               {/* Location */}
               <div className="about-info-card">
                 <GlassCard className="flex items-start gap-4 p-5">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'rgba(168,85,247,0.12)' }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>
@@ -122,7 +121,8 @@ export default function AboutSection() {
             <div className="mt-8">
               <span
                 ref={badgeRef}
-                className="inline-block text-[12px] uppercase tracking-[0.1em] font-medium text-[#00d4ff] bg-[rgba(0,212,255,0.1)] border border-[rgba(0,212,255,0.3)] rounded-full px-4 py-2"
+                className="inline-block text-[12px] uppercase tracking-[0.1em] font-medium rounded-full px-4 py-2"
+                style={{ color: '#c084fc', background: 'rgba(168,85,247,0.12)', border: '1px solid rgba(168,85,247,0.3)' }}
               >
                 ● OPEN FOR OPPORTUNITIES
               </span>

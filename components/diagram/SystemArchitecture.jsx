@@ -30,63 +30,63 @@ const nodesData = [
     id: 'frontend', label: 'FRONTEND',
     techs: ['React.js', 'Redux', 'Tailwind', 'Framer Motion'],
     x: 150, y: 150, mobileX: 150, mobileY: 250,
-    accentColor: '#00d4ff', icon: 'Monitor',
+    accentColor: '#c084fc', icon: 'Monitor',
     description: 'Crafting responsive, interactive user interfaces with React and modern CSS.',
   },
   {
     id: 'gateway', label: 'GATEWAY / API',
     techs: ['REST APIs', 'JWT Auth', 'Spring Security'],
     x: 500, y: 80, mobileX: 300, mobileY: 80,
-    accentColor: '#0088ff', icon: 'Shield',
+    accentColor: '#818cf8', icon: 'Shield',
     description: 'Secure API endpoints, JWT authentication, and request routing layers.',
   },
   {
     id: 'backend', label: 'BACKEND CORE',
     techs: ['Spring Boot', 'Microservices', 'Hibernate'],
     x: 500, y: 300, mobileX: 300, mobileY: 450,
-    accentColor: '#ffffff', icon: 'Server',
+    accentColor: '#e879f9', icon: 'Server',
     description: 'Scalable Spring Boot microservices and core business logic engines.',
   },
   {
     id: 'messaging', label: 'MESSAGING',
     techs: ['Apache Kafka', 'Event-Driven'],
     x: 850, y: 150, mobileX: 450, mobileY: 250,
-    accentColor: '#ff8800', icon: 'Zap',
+    accentColor: '#f472b6', icon: 'Zap',
     description: 'Event-driven architecture with Apache Kafka for async communication.',
   },
   {
     id: 'database', label: 'DATA LAYER',
     techs: ['MySQL', 'PostgreSQL', 'pgVector'],
     x: 850, y: 450, mobileX: 450, mobileY: 650,
-    accentColor: '#00ff88', icon: 'Database',
+    accentColor: '#a78bfa', icon: 'Database',
     description: 'Relational and vector databases — MySQL, PostgreSQL, pgVector.',
   },
   {
     id: 'ai-cloud', label: 'AI & CLOUD',
     techs: ['Vertex AI', 'Speech-to-Text', 'Embeddings'],
     x: 150, y: 450, mobileX: 150, mobileY: 650,
-    accentColor: '#aa00ff', icon: 'Brain',
+    accentColor: '#d946ef', icon: 'Brain',
     description: 'AI integrations with Google Cloud Vertex AI, speech-to-text, and embeddings.',
   },
   {
     id: 'devops', label: 'DEVOPS',
     techs: ['Docker', 'Git', 'Vercel'],
     x: 500, y: 520, mobileX: 300, mobileY: 850,
-    accentColor: '#ff0088', icon: 'GitBranch',
+    accentColor: '#38bdf8', icon: 'GitBranch',
     description: 'Docker containerization, Git workflows, and cloud deployment.',
   },
 ];
 
 // ─── Connection definitions ───
 const connectionsData = [
-  { id: 'fe-gw', from: 'frontend', to: 'gateway', color: '#00d4ff' },
-  { id: 'gw-be', from: 'gateway', to: 'backend', color: '#0088ff' },
-  { id: 'be-msg', from: 'backend', to: 'messaging', color: '#ff8800' },
-  { id: 'be-db', from: 'backend', to: 'database', color: '#00ff88' },
-  { id: 'be-ai', from: 'backend', to: 'ai-cloud', color: '#aa00ff' },
-  { id: 'be-do', from: 'backend', to: 'devops', color: '#ff0088' },
-  { id: 'msg-be', from: 'messaging', to: 'backend', color: '#ff8800' },
-  { id: 'ai-be', from: 'ai-cloud', to: 'backend', color: '#aa00ff' },
+  { id: 'fe-gw', from: 'frontend', to: 'gateway', color: '#c084fc' },
+  { id: 'gw-be', from: 'gateway', to: 'backend', color: '#818cf8' },
+  { id: 'be-msg', from: 'backend', to: 'messaging', color: '#f472b6' },
+  { id: 'be-db', from: 'backend', to: 'database', color: '#a78bfa' },
+  { id: 'be-ai', from: 'backend', to: 'ai-cloud', color: '#d946ef' },
+  { id: 'be-do', from: 'backend', to: 'devops', color: '#38bdf8' },
+  { id: 'msg-be', from: 'messaging', to: 'backend', color: '#f472b6' },
+  { id: 'ai-be', from: 'ai-cloud', to: 'backend', color: '#d946ef' },
 ];
 
 // ─── Which nodes are connected to which (bidirectional map) ───
@@ -262,18 +262,18 @@ export default function SystemArchitecture() {
       id="system-architecture"
       ref={sectionRef}
       className="relative min-h-screen py-32 overflow-hidden"
-      style={{ background: 'linear-gradient(to bottom, rgba(0,212,255,0.02), transparent 200px), #050505' }}
+      style={{ background: 'linear-gradient(to bottom, rgba(168,85,247,0.04), transparent 200px), #0d0a1a' }}
     >
       {/* Container */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="arch-caption text-[12px] uppercase tracking-[0.1em] text-[#00d4ff] font-medium mb-4">
+          <span className="badge-pill mb-4 inline-block arch-caption">
             01 / MY ECOSYSTEM
-          </p>
+          </span>
           <h2 className="arch-title font-display text-[clamp(36px,5vw,64px)] font-bold text-white mb-3">
-            CONNECTED SYSTEMS
+            CONNECTED <span className="font-serif italic font-normal text-purple-300">SYSTEMS</span>
           </h2>
           <p className="arch-subtitle text-[16px] md:text-[18px] text-[#a0a0a0] max-w-[600px] mx-auto leading-relaxed">
             Every layer engineered to work in harmony — from frontend pixels to AI-powered backends.

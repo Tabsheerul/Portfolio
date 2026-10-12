@@ -9,9 +9,9 @@ import SkillsHeader from '@/components/skills/SkillsHeader';
 import SkillsMarquee from '@/components/skills/SkillsMarquee';
 import SkillsGrid from '@/components/skills/SkillsGrid';
 import FreelanceImpact from '@/components/testimonials/FreelanceImpact';
+import RecognitionSection from '@/components/recognition/RecognitionSection';
 import ContactSection from '@/components/contact/ContactSection';
-
-
+import Footer from '@/components/footer/Footer';
 
 export default function Home() {
   return (
@@ -30,10 +30,11 @@ export default function Home() {
       <SkillsMarquee />
       <SkillsGrid />
       <FreelanceImpact />
+      <RecognitionSection />
       
       {/* PART 4 */}
       <ContactSection />
-
+      <Footer />
     </>
   );
 }

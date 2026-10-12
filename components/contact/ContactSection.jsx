@@ -5,13 +5,13 @@ import SocialLinks from './SocialLinks';
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-32 bg-[#050505] min-h-[90vh] overflow-hidden flex flex-col justify-center">
+    <section id="contact" className="relative py-32 min-h-[90vh] overflow-hidden flex flex-col justify-center" style={{ background: '#140d27' }}>
       
       {/* Ambient Glow Background */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 600px 400px at 50% 100%, rgba(0, 212, 255, 0.06), transparent 70%)'
+          background: 'radial-gradient(ellipse 600px 400px at 50% 100%, rgba(168, 85, 247, 0.08), transparent 70%)'
         }}
         aria-hidden="true"
       />

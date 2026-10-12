@@ -60,7 +60,8 @@ export default function SectionTransition() {
     <section
       ref={sectionRef}
       id="transition-hero-architecture"
-      className="section-transition relative h-screen bg-[#050505] flex items-center justify-center overflow-hidden z-10"
+      className="section-transition relative h-screen flex items-center justify-center overflow-hidden z-10"
+      style={{ background: '#0d0a1a' }}
     >
       {/* Watermark background text */}
       <div className="transition-watermark absolute inset-0 flex items-center justify-center pointer-events-none select-none">
@@ -78,13 +79,13 @@ export default function SectionTransition() {
       {/* Foreground text */}
       <div className="relative z-10 text-center">
         <div className="overflow-hidden">
-          <span className="transition-line block font-display text-[clamp(48px,10vw,140px)] font-bold uppercase text-white leading-[1.0] opacity-0">
-            END TO END
+          <span className="transition-line block font-display text-[clamp(44px,9vw,130px)] font-bold uppercase text-white leading-[1.05] opacity-0 whitespace-nowrap">
+            CODE IS <span className="font-serif italic font-normal text-purple-300">POETRY.</span>
           </span>
         </div>
-        <div className="overflow-hidden">
-          <span className="transition-line block font-display text-[clamp(48px,10vw,140px)] font-bold uppercase text-white leading-[1.0] opacity-0">
-            DEVELOPMENT
+        <div className="overflow-hidden mt-2">
+          <span className="transition-line block font-display text-[clamp(44px,9vw,130px)] font-bold uppercase text-purple-400 leading-[1.05] opacity-0 whitespace-nowrap">
+            SYSTEMS ARE <span className="font-serif italic font-normal text-[#f0eeff]">ART.</span>
           </span>
         </div>
       </div>

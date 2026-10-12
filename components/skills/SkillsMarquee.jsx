@@ -70,10 +70,11 @@ export default function SkillsMarquee() {
   return (
     <div
       ref={containerRef}
-      className="py-16 bg-[#0a0a0a] overflow-hidden"
+      className="py-16 overflow-hidden"
       style={{
-        borderTop: '1px solid rgba(255,255,255,0.04)',
-        borderBottom: '1px solid rgba(255,255,255,0.04)',
+        background: '#0d0a1a',
+        borderTop: '1px solid rgba(168,85,247,0.12)',
+        borderBottom: '1px solid rgba(168,85,247,0.12)',
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -90,7 +91,7 @@ export default function SkillsMarquee() {
             className="font-display text-[clamp(48px,8vw,120px)] font-bold uppercase"
             style={{
               color: 'transparent',
-              WebkitTextStroke: '1px rgba(255,255,255,0.15)',
+              WebkitTextStroke: '1px rgba(168,85,247,0.22)',
               letterSpacing: '0.04em',
             }}
           >
@@ -109,7 +110,7 @@ export default function SkillsMarquee() {
           <span
             className="font-display text-[clamp(48px,8vw,120px)] font-bold uppercase"
             style={{
-              color: 'rgba(255,255,255,0.04)',
+              color: 'rgba(168,85,247,0.06)',
               letterSpacing: '0.04em',
             }}
           >
