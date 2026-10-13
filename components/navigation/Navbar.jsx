@@ -115,11 +115,11 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-3">
           <NavLink href="#projects-header" isActive={activeSection === '#projects-header'}>Work</NavLink>
           <NavLink href="#about" isActive={activeSection === '#about'}>About</NavLink>
           <NavLink href="#skills-header" isActive={activeSection === '#skills-header'}>Skills</NavLink>
-          <NavLink href="#contact" isActive={activeSection === '#contact'}>Contact</NavLink>
+          <NavLink href="#contact" isButton={true} isActive={activeSection === '#contact'}>Let's Talk</NavLink>
         </nav>
 
         {/* Mobile Hamburger Button */}
