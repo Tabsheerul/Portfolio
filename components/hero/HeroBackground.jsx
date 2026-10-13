@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 // ─────────────────────────────────────────────
@@ -32,22 +32,19 @@ function createStarTexture() {
 }
 
 // ─────────────────────────────────────────────
-// Interactive Starfield with Spring Physics Mouse Repulsion
+// Autonomous Smooth Starfield (No Mouse Interaction)
 // ─────────────────────────────────────────────
 function StarField({ count = 1600 }) {
   const pointsRef = useRef();
-  const { viewport } = useThree();
-  const mouse = useRef(new THREE.Vector2(9999, 9999));
 
   // Circular star glow texture
   const starTexture = useMemo(() => createStarTexture(), []);
 
-  const { positions, originalPositions, colors, baseColors, velocities, twinkles } = useMemo(() => {
+  const { positions, originalPositions, colors, baseColors, twinkles } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const origPos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
     const baseCol = new Float32Array(count * 3);
-    const vel = new Float32Array(count * 3);
     const tw = new Float32Array(count * 2); // [speed, phase]
 
     // Celestial theme palette (white + purple / lavender / fuchsia stars)
@@ -77,10 +74,6 @@ function StarField({ count = 1600 }) {
       origPos[i3 + 1] = y;
       origPos[i3 + 2] = z;
 
-      vel[i3] = 0;
-      vel[i3 + 1] = 0;
-      vel[i3 + 2] = 0;
-
       // Pick color from celestial palette
       const color = starPalette[Math.floor(Math.random() * starPalette.length)];
       // Subtle brightness variation
@@ -103,28 +96,16 @@ function StarField({ count = 1600 }) {
       originalPositions: origPos,
       colors: col,
       baseColors: baseCol,
-      velocities: vel,
       twinkles: tw,
     };
   }, [count]);
 
-  useFrame(({ clock, pointer }) => {
+  useFrame(({ clock }) => {
     if (!pointsRef.current) return;
 
     const time = clock.getElapsedTime();
     const posArray = pointsRef.current.geometry.attributes.position.array;
     const colArray = pointsRef.current.geometry.attributes.color.array;
-
-    // Convert normalized device pointer (-1 to 1) to world coordinate space
-    mouse.current.set(
-      pointer.x * (viewport.width * 0.5),
-      pointer.y * (viewport.height * 0.5)
-    );
-
-    const springK = 0.055;
-    const friction = 0.88;
-    const repelRadius = 2.8;
-    const repelForce = 1.8;
 
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
@@ -132,60 +113,27 @@ function StarField({ count = 1600 }) {
       const origY = originalPositions[i3 + 1];
       const origZ = originalPositions[i3 + 2];
 
-      // Cosmic floating motion (gentle sine wave drift)
-      const floatX = Math.cos(time * 0.35 + i * 0.07) * 0.08;
-      const floatY = Math.sin(time * 0.45 + i * 0.09) * 0.12;
+      // Autonomous gentle celestial drift (harmonic floating sine waves)
+      posArray[i3] = origX + Math.cos(time * 0.35 + i * 0.07) * 0.12;
+      posArray[i3 + 1] = origY + Math.sin(time * 0.45 + i * 0.09) * 0.15;
+      posArray[i3 + 2] = origZ + Math.sin(time * 0.25 + i * 0.05) * 0.08;
 
-      let targetX = origX + floatX;
-      let targetY = origY + floatY;
-      let targetZ = origZ;
-
-      // Mouse repulsion in XY plane
-      const dx = posArray[i3] - mouse.current.x;
-      const dy = posArray[i3 + 1] - mouse.current.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      let isDisturbed = false;
-      if (dist < repelRadius && dist > 0.001) {
-        const force = (1.0 - dist / repelRadius) * repelForce;
-        targetX += (dx / dist) * force;
-        targetY += (dy / dist) * force;
-        targetZ += (Math.random() - 0.5) * force * 0.5;
-        isDisturbed = true;
-      }
-
-      // Spring physics toward target
-      const ax = (targetX - posArray[i3]) * springK;
-      const ay = (targetY - posArray[i3 + 1]) * springK;
-      const az = (targetZ - posArray[i3 + 2]) * springK;
-
-      velocities[i3] = (velocities[i3] + ax) * friction;
-      velocities[i3 + 1] = (velocities[i3 + 1] + ay) * friction;
-      velocities[i3 + 2] = (velocities[i3 + 2] + az) * friction;
-
-      posArray[i3] += velocities[i3];
-      posArray[i3 + 1] += velocities[i3 + 1];
-      posArray[i3 + 2] += velocities[i3 + 2];
-
-      // Subtle twinkling intensity
+      // Smooth organic twinkling
       const twSpeed = twinkles[i * 2];
       const twPhase = twinkles[i * 2 + 1];
-      const twinkleFactor = 0.85 + Math.sin(time * twSpeed + twPhase) * 0.25;
+      const twinkleFactor = 0.82 + Math.sin(time * twSpeed + twPhase) * 0.22;
 
-      // Excited glow boost when pushed by cursor
-      const glowBoost = isDisturbed ? 1.4 : 1.0;
-
-      colArray[i3] = Math.min(1, baseColors[i3] * twinkleFactor * glowBoost);
-      colArray[i3 + 1] = Math.min(1, baseColors[i3 + 1] * twinkleFactor * glowBoost);
-      colArray[i3 + 2] = Math.min(1, baseColors[i3 + 2] * twinkleFactor * glowBoost);
+      colArray[i3] = Math.min(1, baseColors[i3] * twinkleFactor);
+      colArray[i3 + 1] = Math.min(1, baseColors[i3 + 1] * twinkleFactor);
+      colArray[i3 + 2] = Math.min(1, baseColors[i3 + 2] * twinkleFactor);
     }
 
     pointsRef.current.geometry.attributes.position.needsUpdate = true;
     pointsRef.current.geometry.attributes.color.needsUpdate = true;
 
-    // Very gentle celestial rotation
+    // Smooth eternal celestial rotation
     pointsRef.current.rotation.y = time * 0.012;
-    pointsRef.current.rotation.x = Math.sin(time * 0.008) * 0.02;
+    pointsRef.current.rotation.x = Math.sin(time * 0.008) * 0.018;
   });
 
   return (
