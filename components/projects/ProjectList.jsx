@@ -7,7 +7,7 @@ export default function ProjectList() {
   return (
     <section
       id="projects-list"
-      className="pb-[160px]"
+      className="pb-[160px] overflow-hidden"
       style={{ background: '#140d27' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">

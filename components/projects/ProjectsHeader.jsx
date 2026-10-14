@@ -49,7 +49,7 @@ export default function ProjectsHeader() {
     <section
       id="projects-header"
       ref={sectionRef}
-      className="py-24"
+      className="py-24 overflow-hidden"
       style={{ background: '#140d27' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">

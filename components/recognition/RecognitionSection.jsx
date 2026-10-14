@@ -47,7 +47,7 @@ export default function RecognitionSection() {
   }, { scope: sectionRef });
 
   return (
-    <section id="recognition" ref={sectionRef} className="py-24 border-t border-purple-500/10" style={{ background: '#140d27' }}>
+    <section id="recognition" ref={sectionRef} className="py-24 border-t border-purple-500/10 overflow-hidden" style={{ background: '#140d27' }}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         
         {/* Header */}

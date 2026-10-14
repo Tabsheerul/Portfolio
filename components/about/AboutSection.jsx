@@ -67,7 +67,7 @@ export default function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative py-24 md:py-32"
+      className="relative py-24 md:py-32 overflow-hidden"
       style={{ background: '#0d0a1a' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">

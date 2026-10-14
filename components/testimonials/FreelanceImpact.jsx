@@ -76,7 +76,7 @@ export default function FreelanceImpact() {
     <section
       id="freelance-impact"
       ref={sectionRef}
-      className="py-32 relative"
+      className="py-32 relative overflow-hidden"
       style={{ background: '#0d0a1a' }}
     >
       {/* Top accent line */}
