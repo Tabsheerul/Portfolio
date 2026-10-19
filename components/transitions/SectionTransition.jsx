@@ -66,13 +66,13 @@ export default function SectionTransition() {
       {/* Watermark background text */}
       <div className="transition-watermark absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span
-          className="text-[25vw] font-display font-bold uppercase leading-none"
+          className="text-[18vw] font-display font-bold uppercase leading-none whitespace-nowrap"
           style={{
             color: 'transparent',
             WebkitTextStroke: '1px rgba(255,255,255,0.04)',
           }}
         >
-          T.HAFEEZ
+          TABSHEERUL
         </span>
       </div>
 

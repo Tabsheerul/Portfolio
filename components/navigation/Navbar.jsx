@@ -30,13 +30,16 @@ export default function Navbar() {
     if (!logoRef.current) return;
     
     // Split text manually for logo animation
-    const text = "T.HAFEEZ";
+    const text = "TABSHEERUL HAFEEZ";
     logoRef.current.innerHTML = '';
     
     text.split('').forEach((char) => {
       const span = document.createElement('span');
       span.textContent = char;
       span.style.display = 'inline-block';
+      if (char === ' ') {
+        span.style.width = '0.3em';
+      }
       logoRef.current.appendChild(span);
     });
 
@@ -108,9 +111,9 @@ export default function Navbar() {
         >
           <span 
             ref={logoRef} 
-            className="font-display text-[18px] font-bold uppercase text-white"
+            className="font-display text-[15px] md:text-[17px] font-bold uppercase tracking-wider text-white"
           >
-            T.HAFEEZ
+            TABSHEERUL HAFEEZ
           </span>
         </a>
 

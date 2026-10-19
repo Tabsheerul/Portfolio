@@ -63,8 +63,8 @@ export default function PageTransition({ children }) {
         <div className="transition-panel w-1/4 h-full bg-[#0d0a1a] translate-y-full" />
         
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="transition-text font-display text-[24px] tracking-[0.2em] text-purple-200 opacity-0">
-            T.HAFEEZ
+          <span className="transition-text font-display text-[20px] md:text-[24px] tracking-[0.2em] text-purple-200 opacity-0">
+            TABSHEERUL HAFEEZ
           </span>
         </div>
       </div>
