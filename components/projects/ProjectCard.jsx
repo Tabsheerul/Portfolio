@@ -156,24 +156,6 @@ export default function ProjectCard({ project, index, total }) {
           <ProjectImage project={project} isReversed={false} />
         </div>
       </div>
-
-      {/* Progress dots */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2.5"
-        aria-hidden="true"
-      >
-        {Array.from({ length: total }).map((_, i) => (
-          <span
-            key={i}
-            className="rounded-full transition-all duration-500"
-            style={{
-              width: i === index ? '22px' : '6px',
-              height: '6px',
-              backgroundColor: i === index ? project.accentColor : 'rgba(255,255,255,0.12)',
-            }}
-          />
-        ))}
-      </div>
     </article>
   );
 }
