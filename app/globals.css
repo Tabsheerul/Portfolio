@@ -90,9 +90,19 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 img { image-rendering: auto; }
 
 @media (hover: hover) and (pointer: fine) {
-  html, body, a, button, [role='button'], input, textarea, select {
+  html, body, a, button, [role='button'] {
     cursor: none !important;
   }
+  input, textarea, [contenteditable="true"] {
+    cursor: text !important;
+  }
+  select {
+    cursor: pointer !important;
+  }
+}
+
+textarea {
+  resize: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

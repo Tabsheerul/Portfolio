@@ -66,10 +66,23 @@ export default function CustomCursor() {
     let textProps = { opacity: 0, scale: 0.8 };
 
     switch (cursorVariant) {
+      case 'hidden':
+        outerProps = {
+          width: 0,
+          height: 0,
+          opacity: 0,
+          borderColor: 'transparent',
+          boxShadow: 'none',
+          backgroundColor: 'transparent'
+        };
+        innerProps = { scale: 0, opacity: 0 };
+        textProps = { opacity: 0, scale: 0.5 };
+        break;
       case 'hover':
         outerProps = {
           width: 64,
           height: 64,
+          opacity: 1,
           borderColor: '#a855f7',
           boxShadow: '0 0 20px rgba(168, 85, 247, 0.35)',
           backgroundColor: 'transparent'
@@ -77,14 +90,21 @@ export default function CustomCursor() {
         innerProps = { scale: 0.5, opacity: 1 };
         break;
       case 'click':
-        outerProps.width = 36;
-        outerProps.height = 36;
-        innerProps.scale = 0.9;
+        outerProps = {
+          width: 36,
+          height: 36,
+          opacity: 1,
+          borderColor: 'rgba(255, 255, 255, 0.5)',
+          boxShadow: 'none',
+          backgroundColor: 'transparent'
+        };
+        innerProps = { scale: 0.9, opacity: 1 };
         break;
       case 'view':
         outerProps = {
           width: 80,
           height: 80,
+          opacity: 1,
           borderColor: 'rgba(255,255,255,0.2)',
           boxShadow: 'none',
           backgroundColor: 'rgba(255,255,255,0.05)'
@@ -96,6 +116,7 @@ export default function CustomCursor() {
         outerProps = {
           width: 56,
           height: 56,
+          opacity: 1,
           borderColor: 'rgba(255,255,255,0.2)',
           boxShadow: 'none',
           backgroundColor: 'transparent'
@@ -104,7 +125,15 @@ export default function CustomCursor() {
         textProps = { opacity: 1, scale: 1 };
         break;
       default:
-        // 'default' state handled by initialization above
+        outerProps = { 
+          width: 40, 
+          height: 40, 
+          opacity: 1,
+          borderColor: 'rgba(255, 255, 255, 0.5)', 
+          boxShadow: 'none',
+          backgroundColor: 'transparent'
+        };
+        innerProps = { scale: 1, opacity: 1 };
         break;
     }
 
