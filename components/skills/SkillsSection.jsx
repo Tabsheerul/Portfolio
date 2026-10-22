@@ -7,67 +7,67 @@ const CONSTELLATION_DATA = [
   {
     id: 'backend',
     title: 'BACKEND ARCHITECTURE',
-    x: 0.46,
-    y: 0.20,
-    size: 18,
+    x: 0.50,
+    y: 0.22,
+    size: 17,
     color: '#ffffff',
     glowColor: '#a855f7',
     children: [
-      { name: 'Spring Boot',       color: '#c084fc', size: 13, dx: -190, dy: -50 },
-      { name: 'Java 21',           color: '#e879f9', size: 13, dx:  185, dy: -50 },
-      { name: 'Apache Kafka',      color: '#c084fc', size: 12, dx: -210, dy:  25 },
-      { name: 'Microservices',     color: '#e2e8f0', size: 12, dx:  195, dy:  25 },
-      { name: 'Distributed Systems', color: '#a855f7', size: 12, dx: 0, dy:  72 },
-      { name: 'Hibernate / JPA',   color: '#38bdf8', size: 11, dx: -140, dy: 105 },
-      { name: 'Spring Security',   color: '#c084fc', size: 11, dx:  140, dy: 105 },
+      { name: 'Spring Boot',         color: '#c084fc', size: 12.5, dx: -160, dy: -42 },
+      { name: 'Java 21',             color: '#e879f9', size: 12.5, dx:  155, dy: -42 },
+      { name: 'Apache Kafka',        color: '#c084fc', size: 12,   dx: -175, dy:  24 },
+      { name: 'Microservices',       color: '#e2e8f0', size: 12,   dx:  165, dy:  24 },
+      { name: 'Distributed Systems', color: '#a855f7', size: 11.5, dx:    0, dy:  68 },
+      { name: 'Hibernate / JPA',     color: '#38bdf8', size: 11,   dx: -125, dy:  98 },
+      { name: 'Spring Security',     color: '#c084fc', size: 11,   dx:  125, dy:  98 },
     ],
   },
   {
     id: 'web',
     title: 'WEB DEVELOPMENT',
-    x: 0.73,
+    x: 0.74,
     y: 0.46,
-    size: 18,
+    size: 17,
     color: '#ffffff',
     glowColor: '#38bdf8',
     children: [
-      { name: 'React.js',       color: '#38bdf8', size: 13, dx: -165, dy: -42 },
-      { name: 'Next.js',        color: '#f8fafc', size: 13, dx:  158, dy: -38 },
-      { name: 'JavaScript',     color: '#facc15', size: 13, dx: -155, dy:  38 },
-      { name: 'Tailwind CSS',   color: '#38bdf8', size: 12, dx:  155, dy:  45 },
-      { name: 'Redux',          color: '#c084fc', size: 11, dx:  -28, dy:  80 },
-      { name: 'Three.js / GSAP',color: '#a855f7', size: 11, dx:  100, dy:  90 },
+      { name: 'React.js',         color: '#38bdf8', size: 12.5, dx: -140, dy: -38 },
+      { name: 'Next.js',          color: '#f8fafc', size: 12.5, dx:  135, dy: -35 },
+      { name: 'JavaScript',       color: '#facc15', size: 12.5, dx: -130, dy:  35 },
+      { name: 'Tailwind CSS',     color: '#38bdf8', size: 12,   dx:  130, dy:  40 },
+      { name: 'Redux',            color: '#c084fc', size: 11,   dx:  -24, dy:  72 },
+      { name: 'Three.js / GSAP',  color: '#a855f7', size: 11,   dx:   85, dy:  82 },
     ],
   },
   {
     id: 'data-ai',
     title: 'DATA & AI LAYER',
-    x: 0.28,
+    x: 0.36,
     y: 0.74,
-    size: 17,
+    size: 16.5,
     color: '#ffffff',
     glowColor: '#4ade80',
     children: [
-      { name: 'PostgreSQL',       color: '#60a5fa', size: 13, dx: -168, dy: -40 },
-      { name: 'pgVector',         color: '#4ade80', size: 13, dx:  165, dy: -35 },
-      { name: 'Vertex AI',        color: '#fb923c', size: 13, dx: -148, dy:  42 },
-      { name: 'SQL',              color: '#38bdf8', size: 12, dx:  140, dy:  42 },
-      { name: 'Vector Embeddings',color: '#4ade80', size: 11, dx:    0, dy:  80 },
+      { name: 'PostgreSQL',        color: '#60a5fa', size: 12.5, dx: -145, dy: -36 },
+      { name: 'pgVector',          color: '#4ade80', size: 12.5, dx:  140, dy: -32 },
+      { name: 'Vertex AI',         color: '#fb923c', size: 12.5, dx: -130, dy:  38 },
+      { name: 'SQL',               color: '#38bdf8', size: 12,   dx:  125, dy:  38 },
+      { name: 'Vector Embeddings', color: '#4ade80', size: 11,   dx:    0, dy:  72 },
     ],
   },
   {
     id: 'devops',
     title: 'DEVOPS & SYSTEMS',
-    x: 0.76,
-    y: 0.82,
-    size: 17,
+    x: 0.75,
+    y: 0.80,
+    size: 16.5,
     color: '#ffffff',
     glowColor: '#f43f5e',
     children: [
-      { name: 'Docker',     color: '#38bdf8', size: 13, dx: -148, dy: -38 },
-      { name: 'Git & GitHub', color: '#f43f5e', size: 12, dx:  148, dy: -35 },
-      { name: 'C Language', color: '#94a3b8', size: 12, dx:  -92, dy:  48 },
-      { name: 'REST APIs',  color: '#c084fc', size: 11, dx:   92, dy:  48 },
+      { name: 'Docker',       color: '#38bdf8', size: 12.5, dx: -135, dy: -35 },
+      { name: 'Git & GitHub', color: '#f43f5e', size: 12,   dx:  135, dy: -32 },
+      { name: 'C Language',   color: '#94a3b8', size: 11.5, dx:  -80, dy:  44 },
+      { name: 'REST APIs',    color: '#c084fc', size: 11,   dx:   80, dy:  44 },
     ],
   },
 ];
@@ -87,16 +87,89 @@ export default function SkillsSection() {
     let W = 0, H = 0;
     const dpr = () => Math.min(window.devicePixelRatio || 1, 2);
 
+    // ─── Ambient background stars (subtle depth) ──────────────────────────────
+    const bgStars = Array.from({ length: 42 }, () => ({
+      x: Math.random(),
+      y: Math.random(),
+      r: Math.random() * 1.2 + 0.4,
+      alpha: Math.random() * 0.35 + 0.1,
+      seed: Math.random() * Math.PI * 2,
+    }));
+
+    // ─── Build node / link lists ───────────────────────────────────────────────
+    let nodes = [];
+    let links = [];
+
+    const rebuildNodes = () => {
+      nodes = [];
+      links = [];
+      const scale = Math.min(1.05, Math.max(0.72, W / 780));
+
+      CONSTELLATION_DATA.forEach((cluster, ci) => {
+        const parent = {
+          ...cluster,
+          name: cluster.title,
+          isMajor: true,
+          seed: ci * 13,
+          x: cluster.x * W,
+          y: cluster.y * H,
+          baseX: cluster.x,
+          baseY: cluster.y,
+          pulseT: Math.random() * Math.PI * 2,
+        };
+        nodes.push(parent);
+
+        cluster.children.forEach((ch, i) => {
+          const child = {
+            ...ch,
+            size: Math.round(ch.size * Math.max(0.9, scale)),
+            isMajor: false,
+            parentRef: parent,
+            seed: ci * 13 + i + 1,
+            curDx: ch.dx * scale,
+            curDy: ch.dy * scale,
+            x: parent.x + ch.dx * scale,
+            y: parent.y + ch.dy * scale,
+            hovered: false,
+          };
+          nodes.push(child);
+          links.push({
+            source: parent,
+            target: child,
+            isCross: false,
+          });
+        });
+      });
+
+      // Cross-cluster links
+      const majorNodes = nodes.filter(n => n.isMajor);
+      for (let i = 0; i < majorNodes.length - 1; i++) {
+        links.push({
+          source: majorNodes[i],
+          target: majorNodes[i + 1],
+          isCross: true,
+        });
+      }
+      if (majorNodes.length >= 3) {
+        links.push({
+          source: majorNodes[0],
+          target: majorNodes[2],
+          isCross: true,
+        });
+      }
+    };
+
     const resize = () => {
       if (!canvas.parentElement) return;
       const d = dpr();
       W = canvas.parentElement.clientWidth;
-      H = canvas.parentElement.clientHeight || 640;
+      H = canvas.parentElement.clientHeight || 660;
       canvas.width  = W * d;
       canvas.height = H * d;
       canvas.style.width  = W + 'px';
       canvas.style.height = H + 'px';
       ctx.setTransform(d, 0, 0, d, 0, 0);
+      rebuildNodes();
     };
     resize();
     window.addEventListener('resize', resize);
@@ -108,47 +181,10 @@ export default function SkillsSection() {
       mouse.tx = e.clientX - r.left;
       mouse.ty = e.clientY - r.top;
     };
-    canvas.parentElement.addEventListener('mousemove', onMove);
 
-    // ─── Build node / link lists ───────────────────────────────────────────────
-    const nodes = [];
-    const links = [];
-
-    CONSTELLATION_DATA.forEach((cluster, ci) => {
-      const parent = {
-        ...cluster,
-        name: cluster.title,
-        isMajor: true, seed: ci * 13,
-        x: cluster.x * W, y: cluster.y * H,
-        baseX: cluster.x, baseY: cluster.y,
-        pulseT: Math.random() * Math.PI * 2,
-      };
-      nodes.push(parent);
-
-      cluster.children.forEach((ch, i) => {
-        const child = {
-          ...ch, isMajor: false, parentRef: parent, seed: ci * 13 + i + 1,
-          x: parent.x + ch.dx, y: parent.y + ch.dy,
-          hovered: false,
-        };
-        nodes.push(child);
-        links.push({ source: parent, target: child, isCross: false,
-                     particles: Array.from({ length: 2 }, () => ({ t: Math.random() })) });
-      });
-    });
-
-    // Cross-cluster links
-    const majorNodes = nodes.filter(n => n.isMajor);
-    for (let i = 0; i < majorNodes.length - 1; i++) {
-      links.push({
-        source: majorNodes[i],
-        target: majorNodes[i + 1],
-        isCross: true,
-        particles: [{ t: Math.random() }],
-      });
-    }
-    links.push({ source: majorNodes[0], target: majorNodes[2], isCross: true,
-                 particles: [{ t: Math.random() }] });
+    // Track on both container and window for natural parallax response
+    const container = containerRef.current || canvas.parentElement;
+    container?.addEventListener('mousemove', onMove);
 
     // ─── Helper: safe shadow ────────────────────────────────────────────────────
     const setShadow = (color, blur) => {
@@ -182,9 +218,18 @@ export default function SkillsSection() {
 
       ctx.clearRect(0, 0, W, H);
 
-      // Parallax
+      // Parallax offsets
       const ox = (mouse.x - W * 0.5) * 0.032;
       const oy = (mouse.y - H * 0.5) * 0.032;
+
+      // ── Draw ambient background stars (subtle galaxy depth) ─────────────────
+      bgStars.forEach(st => {
+        const a = st.alpha * (0.6 + 0.4 * Math.sin(time * 1.5 + st.seed));
+        ctx.beginPath();
+        ctx.arc(st.x * W + ox * 0.35, st.y * H + oy * 0.35, st.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(192, 198, 255, ${a})`;
+        ctx.fill();
+      });
 
       // ── Update positions ────────────────────────────────────────────────────
       nodes.forEach(n => {
@@ -192,8 +237,8 @@ export default function SkillsSection() {
           n.x = n.baseX * W + Math.sin(time + n.seed) * 5 + ox * 1.2;
           n.y = n.baseY * H + Math.cos(time * 0.75 + n.seed) * 5 + oy * 1.2;
         } else {
-          n.x = n.parentRef.x + n.dx + Math.sin(time * 1.1 + n.seed) * 3;
-          n.y = n.parentRef.y + n.dy + Math.cos(time * 0.9 + n.seed) * 3;
+          n.x = n.parentRef.x + (n.curDx || n.dx) + Math.sin(time * 1.1 + n.seed) * 3;
+          n.y = n.parentRef.y + (n.curDy || n.dy) + Math.cos(time * 0.9 + n.seed) * 3;
         }
         n.hovered = Math.hypot(mouse.x - n.x, mouse.y - n.y) < 50;
       });
@@ -219,7 +264,7 @@ export default function SkillsSection() {
           ctx.setLineDash([]);
           ctx.restore();
         } else {
-          // Solid link with glow
+          // Solid link with subtle glow
           ctx.save();
           const grad = ctx.createLinearGradient(s.x, s.y, t.x, t.y);
           grad.addColorStop(0, `${s.glowColor || '#38bdf8'}20`);
@@ -234,22 +279,6 @@ export default function SkillsSection() {
           clearShadow();
           ctx.restore();
         }
-
-        // ── Animated particles flowing along links ──────────────────────────
-        link.particles.forEach(p => {
-          p.t = (p.t + (link.isCross ? 0.003 : 0.006)) % 1;
-          const px = s.x + (t.x - s.x) * p.t;
-          const py = s.y + (t.y - s.y) * p.t;
-          const pColor = link.isCross ? '#a855f7' : (t.color || '#38bdf8');
-          setShadow(pColor, 8);
-          ctx.beginPath();
-          ctx.arc(px, py, link.isCross ? 1.5 : 2, 0, Math.PI * 2);
-          ctx.fillStyle = pColor;
-          ctx.globalAlpha = 0.7;
-          ctx.fill();
-          ctx.globalAlpha = 1;
-          clearShadow();
-        });
       });
 
       // ── Draw nodes ──────────────────────────────────────────────────────────
@@ -285,7 +314,7 @@ export default function SkillsSection() {
           ctx.fill();
           clearShadow();
 
-          // ── Label ─────────────────────────────────────────────────────────
+          // ── Major Cluster Title ───────────────────────────────────────────
           ctx.save();
           ctx.font = `700 ${n.size}px "Space Grotesk","Outfit","Inter",sans-serif`;
           ctx.textAlign = 'center';
@@ -301,16 +330,16 @@ export default function SkillsSection() {
           ctx.save();
           ctx.font = `${hov ? 600 : 400} ${hov ? n.size + 1 : n.size}px "Space Grotesk","Outfit","Inter",sans-serif`;
           ctx.textBaseline = 'middle';
-          ctx.textAlign = 'left';
+          ctx.textAlign = 'center';
           const metrics = ctx.measureText(n.name);
-          const padX = 10, padY = 5;
+          const padX = 11, padY = 5.5;
           const chipW = metrics.width + padX * 2;
           const chipH = n.size + padY * 2;
           const cx = n.x - chipW / 2;
           const cy = n.y - chipH / 2;
 
-          // Pill background
-          ctx.globalAlpha = hov ? 0.25 : 0.14;
+          // Pill background (clean dark glass)
+          ctx.globalAlpha = hov ? 0.28 : 0.14;
           roundRect(cx, cy, chipW, chipH, chipH / 2);
           ctx.fillStyle = n.color;
           ctx.fill();
@@ -324,16 +353,7 @@ export default function SkillsSection() {
           ctx.stroke();
           clearShadow();
 
-          // Tiny anchor dot
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, hov ? 2.8 : 1.8, 0, Math.PI * 2);
-          setShadow(n.color, hov ? 10 : 4);
-          ctx.fillStyle = n.color;
-          ctx.fill();
-          clearShadow();
-
-          // Label text
-          ctx.textAlign = 'center';
+          // Label text (clean and uncluttered, no overlapping dots)
           setShadow(hov ? n.color : 'transparent', hov ? 8 : 0);
           ctx.fillStyle = hov ? '#ffffff' : n.color;
           ctx.fillText(n.name, n.x, n.y);
@@ -349,7 +369,7 @@ export default function SkillsSection() {
 
     return () => {
       window.removeEventListener('resize', resize);
-      canvas.parentElement?.removeEventListener('mousemove', onMove);
+      container?.removeEventListener('mousemove', onMove);
       cancelAnimationFrame(animId);
     };
   }, []);
@@ -358,36 +378,25 @@ export default function SkillsSection() {
     <section
       id="skills-header"
       ref={containerRef}
-      className="relative py-16 md:py-20 overflow-hidden"
+      className="relative py-20 lg:py-24 overflow-hidden"
       style={{ background: '#0d0a1a' }}
     >
-      {/* ── Multi-layer ambient background glows ─────────────────────────── */}
+      {/* ── Multi-layer ambient background glows (diffuse across the whole section) ── */}
       <div
-        className="pointer-events-none absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-[160px] opacity-[0.12]"
+        className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-[160px] opacity-[0.14]"
         style={{ background: 'radial-gradient(circle, #a855f7 0%, transparent 70%)' }}
       />
       <div
-        className="pointer-events-none absolute bottom-0 right-0 w-[700px] h-[500px] rounded-full blur-[140px] opacity-[0.10]"
+        className="pointer-events-none absolute -bottom-32 -right-32 w-[700px] h-[600px] rounded-full blur-[160px] opacity-[0.12]"
         style={{ background: 'radial-gradient(circle, #38bdf8 0%, #a855f7 50%, transparent 80%)' }}
       />
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[120px] opacity-[0.08]"
-        style={{ background: '#c084fc' }}
-      />
-
-      {/* ── Subtle noise-grain overlay ───────────────────────────────────── */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '128px 128px',
-          mixBlendMode: 'overlay',
-        }}
+        className="pointer-events-none absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[150px] opacity-[0.09]"
+        style={{ background: 'radial-gradient(circle, #c084fc 0%, transparent 70%)' }}
       />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[640px]">
 
           {/* ── Left: Code-tag styled bio ─────────────────────────────────── */}
           <div className="lg:col-span-5 space-y-3.5 select-none">
@@ -472,19 +481,18 @@ export default function SkillsSection() {
             </div>
           </div>
 
-          {/* ── Right: Constellation galaxy canvas ────────────────────────── */}
-          <div className="lg:col-span-7 relative h-[540px] md:h-[640px] w-full flex items-center justify-center">
-            {/* Glow underlay behind canvas */}
-            <div
-              className="absolute inset-0 pointer-events-none rounded-2xl"
-              style={{
-                background: 'radial-gradient(ellipse 80% 70% at 55% 45%, rgba(168,85,247,0.07) 0%, rgba(56,189,248,0.04) 60%, transparent 100%)',
-              }}
-            />
+          {/* ── Right: Seamless Constellation Galaxy Canvas (No box container) ── */}
+          <div
+            className="lg:col-span-7 relative h-[600px] md:h-[680px] w-full flex items-center justify-center pointer-events-auto"
+            style={{
+              maskImage: 'radial-gradient(ellipse 94% 90% at 50% 50%, #000 70%, transparent 100%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 94% 90% at 50% 50%, #000 70%, transparent 100%)',
+            }}
+          >
             <canvas
               ref={canvasRef}
-              className="w-full h-full cursor-crosshair"
-              style={{ display: 'block' }}
+              className="w-full h-full"
+              style={{ display: 'block', background: 'transparent' }}
             />
           </div>
 
