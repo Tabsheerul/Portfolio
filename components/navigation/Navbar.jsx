@@ -6,10 +6,10 @@ import { cn } from '@/lib/utils';
 import { useAppStore } from '@/lib/store';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import NavLink from './NavLink';
+import Logo from './Logo';
 
 export default function Navbar() {
   const navRef = useRef(null);
-  const logoRef = useRef(null);
   const { scrollDirection, isScrolled, toggleMenu, isMenuOpen } = useAppStore();
   const [activeSection, setActiveSection] = useState('');
   
@@ -25,44 +25,6 @@ export default function Navbar() {
       }
     }
   }, [scrollDirection, isScrolled, isMenuOpen]);
-
-  useEffect(() => {
-    if (!logoRef.current) return;
-    
-    // Split text manually for logo animation
-    const text = "TABSHEERUL HAFEEZ";
-    logoRef.current.innerHTML = '';
-    
-    text.split('').forEach((char) => {
-      const span = document.createElement('span');
-      span.textContent = char;
-      span.style.display = 'inline-block';
-      if (char === ' ') {
-        span.style.width = '0.3em';
-      }
-      logoRef.current.appendChild(span);
-    });
-
-    const chars = logoRef.current.children;
-    
-    const handleMouseEnter = () => {
-      gsap.to(chars, {
-        y: -2,
-        stagger: 0.02,
-        duration: 0.2,
-        ease: 'power1.out',
-        yoyo: true,
-        repeat: 1
-      });
-    };
-
-    const logoEl = logoRef.current;
-    logoEl.addEventListener('mouseenter', handleMouseEnter);
-    
-    return () => {
-      logoEl.removeEventListener('mouseenter', handleMouseEnter);
-    };
-  }, []);
 
   // Intersection Observer for Active Section
   useEffect(() => {
@@ -108,13 +70,9 @@ export default function Navbar() {
           onClick={handleLogoClick}
           className="relative z-[9999]"
           data-cursor="hover"
+          aria-label="Muhammad Tabsheerul Hafeez Ans - Home"
         >
-          <span 
-            ref={logoRef} 
-            className="font-display text-[15px] md:text-[17px] font-bold uppercase tracking-wider text-white"
-          >
-            TABSHEERUL HAFEEZ
-          </span>
+          <Logo />
         </a>
 
         {/* Desktop Nav */}

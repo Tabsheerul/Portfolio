@@ -161,3 +161,9 @@ textarea {
   filter: blur(80px);
   pointer-events: none;
 }
+
+/* Logo monogram shimmer */
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
