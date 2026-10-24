@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import dynamic from 'next/dynamic';
 import { useAppStore } from '@/lib/store';
 import MagneticButton from '@/components/shared/MagneticButton';
+import VenomButton from '@/components/ui/VenomButton';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 const HeroBackground = dynamic(() => import('./HeroBackground'), { ssr: false });
@@ -355,16 +356,24 @@ export default function HeroSection() {
         </div>
 
         {/* Action Buttons */}
-        <div className="hero-cta opacity-0 flex flex-wrap items-center gap-3.5">
-          <MagneticButton
-            className="!bg-[#a855f7] hover:!bg-[#9333ea] border border-[#a855f7] text-[12.5px] uppercase tracking-[0.08em] font-semibold text-white shadow-[0_0_25px_rgba(168,85,247,0.35)] !px-7 !py-3.5 !rounded-full transition-all duration-300"
+        <div className="hero-cta opacity-0 flex flex-wrap items-center gap-3.5 mt-8">
+          <VenomButton
+            label="Explore My Work"
+            theme="transparent"
+            color="purple"
+            cursor="native"
+            inline={true}
+            bleed={50}
+            bleedY={36}
+            strands={6}
+            sense={180}
+            reach={90}
+            release={150}
             onClick={() => {
               const el = document.querySelector('#projects-header');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-          >
-            Explore My Work
-          </MagneticButton>
+          />
 
           <button
             className="px-6 py-3.5 rounded-full border border-white/15 bg-white/[0.02] hover:bg-white/[0.06] hover:border-purple-400/50 text-[12.5px] uppercase tracking-[0.08em] font-medium text-[#f0eeff] transition-all duration-300 backdrop-blur-sm"
